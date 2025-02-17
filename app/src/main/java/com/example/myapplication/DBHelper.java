@@ -19,8 +19,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_YEAR = "year";
 
-    public DBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public DBHelper(@Nullable Context context) {
+        super(context, DATABASE_NAME, null, SCHEMA);
     }
 
     @Override
@@ -44,6 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 userArrayList.add(user);
             } while  (cursor.moveToNext());
         }
+        cursor.close();
         return userArrayList;
     }
 
