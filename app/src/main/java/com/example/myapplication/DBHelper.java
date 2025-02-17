@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "users2025.db";
     public static final String TABLE_NAME = "users";
-    public static final int SCHEMA = 1; // версия БД
+    public static final int SCHEMA = 2; // версия БД
 
     // Название столбцов
     public static final String COLUMN_ID = "id";
@@ -31,6 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + COLUMN_YEAR + " INTEGER); "
                 );
         db.execSQL("INSERT INTO "+TABLE_NAME + "("+COLUMN_NAME+","+COLUMN_YEAR+") VALUES ('Ivanov Ivan','2010')");
+        db.execSQL("INSERT INTO "+TABLE_NAME + "("+COLUMN_NAME+","+COLUMN_YEAR+") VALUES ('Petrova Olga','2012')");
+        db.execSQL("INSERT INTO "+TABLE_NAME + "("+COLUMN_NAME+","+COLUMN_YEAR+") VALUES ('Sidorov Alex','2015')");
     }
 
     public ArrayList<User> getAll() {
